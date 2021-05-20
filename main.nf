@@ -17,6 +17,7 @@ process PRINT_ENV {
     script:
     """
     env
+    echo "-u \$(id -u):\$(id -g)"
     """
 
 }
