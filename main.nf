@@ -6,7 +6,7 @@ nextflow.enable.dsl = 2
 workflow {
 
     main:
-        PRINT_ENV()
+        PRINT_ENV().view()
 }
 
 process PRINT_ENV {
