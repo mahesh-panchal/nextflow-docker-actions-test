@@ -27,8 +27,6 @@ process PRINT_ENV {
 }
 
 process ADAM_TRANSFORMALIGNMENTS {
-    tag "${sample}"
-    container "quay.io/biocontainers/adam:0.35.0--hdfd78af_0"
 
     input:
     tuple val(sample), path(sam)
