@@ -39,7 +39,7 @@ process ADAM_TRANSFORMALIGNMENTS {
     script:
     """
     env
-    whoami
+    # whoami ## Fails with unknown <id>
     mkdir .spark-local
     TMP=`realpath .spark-local`
 
