@@ -11,6 +11,7 @@ workflow {
         data = Channel.fromPath("test/**.sam").map { path -> tuple(path.baseName, path) }
         ADAM_TRANSFORMALIGNMENTS(data)
         ADAM_TRANSFORMALIGNMENTS.out.bam.view()
+        ADAM_TRANSFORMALIGNMENTS.out.stdout.view()
 }
 
 /*
@@ -37,6 +38,7 @@ process ADAM_TRANSFORMALIGNMENTS {
 
     output:
     tuple val(sample), path("*.bam"), emit: bam
+    stdout(emit: stdout)
 
     script:
     """
