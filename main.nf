@@ -49,6 +49,7 @@ process ADAM_TRANSFORMALIGNMENTS {
         --driver-memory ${task.memory.toGiga()}g \\
         --conf spark.local.dir=\$TMP \\
         --conf spark.jars.ivy=\$TMP/.ivy2 \\
+        -- \\
         transformAlignments -single ${sam} ${sample}.bam
     """
 }
