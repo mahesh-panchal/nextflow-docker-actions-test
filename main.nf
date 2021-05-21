@@ -40,6 +40,7 @@ process ADAM_TRANSFORMALIGNMENTS {
 
     script:
     """
+    more /etc/passwd
     env
     # whoami ## Fails with unknown <id>
     mkdir .spark-local
