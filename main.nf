@@ -36,6 +36,16 @@ process ADAM_TRANSFORMALIGNMENTS {
 
     script:
     """
-    adam-submit transformAlignments -single ${sam} ${sample}.bam
+    mkdir .spark-local
+    TMP=`realpath .spark-local`
+
+    export SPARK_LOCAL_IP=127.0.0.1
+    export SPARK_PUBLIC_DNS=127.0.0.1
+    adam-submit \\
+        --master local[${task.cpus}] \\
+        --driver-memory ${task.memory.toGiga()}g \\
+        --conf spark.local.dir=\$TMP \\
+        --conf spark.jars.ivy=\$TMP/.ivy2 \\
+        transformAlignments -single ${sam} ${sample}.bam
     """
 }
