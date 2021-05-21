@@ -43,6 +43,7 @@ process ADAM_TRANSFORMALIGNMENTS {
     script:
     """
     more /etc/passwd
+    echo "-u \$(id -u):\$(id -g)"
     env
     # whoami ## Fails with unknown <id>
     mkdir .spark-local
