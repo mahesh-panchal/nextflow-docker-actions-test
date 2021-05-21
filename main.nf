@@ -28,6 +28,8 @@ process PRINT_ENV {
 
 process ADAM_TRANSFORMALIGNMENTS {
 
+    memory '2 GB'
+
     input:
     tuple val(sample), path(sam)
 
