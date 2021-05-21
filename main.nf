@@ -38,6 +38,7 @@ process ADAM_TRANSFORMALIGNMENTS {
 
     script:
     """
+    env
     mkdir .spark-local
     TMP=`realpath .spark-local`
 
